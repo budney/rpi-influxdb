@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY influxdb.conf /etc/influxdb/influxdb.conf
 
-ADD run.sh /run.sh
+ADD run.sh entrypoint.sh /
 RUN chmod +x /*.sh
 
 ENV PRE_CREATE_DB **None**
@@ -26,5 +26,5 @@ EXPOSE 8086
 
 VOLUME ["/data"]
 
-CMD ["/run.sh"]
+CMD ["/entrypoint.sh"]
 
